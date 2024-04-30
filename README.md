@@ -1,122 +1,63 @@
-# OpenSource GPU
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开源 GPU</font></font></h1><a id="user-content-opensource-gpu" class="anchor" aria-label="永久链接：开源 GPU" href="#opensource-gpu"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建一个开源 GPU，针对 ASIC 流片，用于</font></font><a href="https://en.wikipedia.org/wiki/Machine_learning" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">机器学习</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">  (“ML”)。希望它能够与</font></font><a href="https://pytorch.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PyTorch</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">深度学习框架一起使用。</font></font></p>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">想象</font></font></h1><a id="user-content-vision" class="anchor" aria-label="永久链接： 愿景" href="#vision"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建用于机器学习的开源 GPU。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我实际上并不打算自己将其录制下来，但我打算尽我所能来验证录制是否可以正常工作，计时是否正常等等。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">打算实现一个与</font><a href="https://pytorch.org" rel="nofollow"><font style="vertical-align: inherit;">pytorch</font></a><font style="vertical-align: inherit;">机器学习框架</font><font style="vertical-align: inherit;">兼容的</font></font><a href="https://github.com/ROCm-Developer-Tools/HIP"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">HIP</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> API。开放提供其他 API，例如</font><a href="https://www.khronos.org/sycl/" rel="nofollow"><font style="vertical-align: inherit;">SYCL</font></a><font style="vertical-align: inherit;">或</font><a href="https://developer.nvidia.com/cuda-toolkit" rel="nofollow"><font style="vertical-align: inherit;">NVIDIA® CUDA™</font></a><font style="vertical-align: inherit;">。</font></font><a href="https://pytorch.org" rel="nofollow"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font><a href="https://www.khronos.org/sycl/" rel="nofollow"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font><a href="https://developer.nvidia.com/cuda-toolkit" rel="nofollow"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://riscv.org/technical/specifications/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内部 GPU 核心 ISA 与RISC-V</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ISA</font><font style="vertical-align: inherit;">松散兼容。</font><font style="vertical-align: inherit;">当 RISC-V 与 GPU 设置设计发生冲突时，我们就与 RISC-V 决裂。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">打算让核心非常专注于机器学习。例如，始终</font></font><a href="https://en.wikipedia.org/wiki/Bfloat16_floating-point_format" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">采用大脑浮点</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（“BF16”），以保持核心芯片面积较低。这应该可以保持每核成本较低。同样，打算仅实现对 ML 至关重要的少数浮点运算，例如</font></font><code>exp</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><code>log</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><code>tanh</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><code>sqrt</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">建筑学</font></font></h1><a id="user-content-architecture" class="anchor" aria-label="永久链接：建筑" href="#architecture"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">大图景：</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/hughperkins/VeriGPU/blob/main/docs/img/overall.png"><img src="/hughperkins/VeriGPU/raw/main/docs/img/overall.png" alt="大局观" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GPU 芯片架构：</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/hughperkins/VeriGPU/blob/main/docs/img/gpu_die.png"><img src="/hughperkins/VeriGPU/raw/main/docs/img/gpu_die.png" alt="GPU 芯片架构" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单核：</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/hughperkins/VeriGPU/blob/main/docs/img/core.png"><img src="/hughperkins/VeriGPU/raw/main/docs/img/core.png" alt="单核" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单源编译和运行时</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/hughperkins/VeriGPU/blob/main/docs/img/endtoend.png"><img src="/hughperkins/VeriGPU/raw/main/docs/img/endtoend.png" alt="端到端架构" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模拟</font></font></h1><a id="user-content-simulation" class="anchor" aria-label="永久链接：模拟" href="#simulation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
 
-Build an opensource GPU, targeting ASIC tape-out, for [machine learning](https://en.wikipedia.org/wiki/Machine_learning)  ("ML"). Hopefully, can get it to work with the [PyTorch](https://pytorch.org) deep learning framework.
 
-# Vision
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单一源 C++</font></font></h2><a id="user-content-single-source-c" class="anchor" aria-label="永久链接：单一源 C++" href="#single-source-c"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单一源 C++：</font></font></p>
+<ul dir="auto">
+<li><a href="/hughperkins/VeriGPU/blob/main/examples/cpp_single_source/sum_ints.cpp"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">示例/cpp_single_source/sum_ints.cpp</font></font></a></li>
+</ul>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/hughperkins/VeriGPU/blob/main/docs/img/single_source_code.png"><img src="/hughperkins/VeriGPU/raw/main/docs/img/single_source_code.png" alt="单一源 C++" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编译 GPU 和运行时：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CMakeLists.txt：</font></font><a href="/hughperkins/VeriGPU/blob/main/src/gpu_runtime/CMakeLists.txt"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">src/gpu_runtime/CMakeLists.txt</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GPU运行时：</font></font><a href="/hughperkins/VeriGPU/blob/main/src/gpu_runtime/gpu_runtime.cpp"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">src/gpu_runtime/gpu_runtime.cpp</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GPU控制器：</font></font><a href="/hughperkins/VeriGPU/blob/main/src/gpu_controller.sv"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">src/gpu_controller.sv</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单 GPU RISC-V 内核：</font></font><a href="/hughperkins/VeriGPU/blob/main/src/core.sv"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">src/core.sv</font></font></a></li>
+</ul>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/hughperkins/VeriGPU/blob/main/docs/img/compile_gpu_and_runtime.png"><img src="/hughperkins/VeriGPU/raw/main/docs/img/compile_gpu_and_runtime.png" alt="编译GPU和运行时" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编译单源 C++，然后运行：</font></font></p>
+<ul dir="auto">
+<li><a href="/hughperkins/VeriGPU/blob/main/examples/cpp_single_source/run.sh"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">示例/cpp_single_source/run.sh sum_ints</font></font></a></li>
+</ul>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/hughperkins/VeriGPU/blob/main/docs/img/single_source_run.png"><img src="/hughperkins/VeriGPU/raw/main/docs/img/single_source_run.png" alt="运行单源示例" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">规划</font></font></h1><a id="user-content-planning" class="anchor" aria-label="永久链接：规划" href="#planning"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们想朝什么方向发展？什么已经起作用了？看：</font></font></p>
+<ul dir="auto">
+<li><a href="/hughperkins/VeriGPU/blob/main/docs/planning.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档/planning.md</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">技术细节</font></font></h1><a id="user-content-tech-details" class="anchor" aria-label="永久链接：技术细节" href="#tech-details"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的汇编语言实现和进展。 GPU内存、寄存器等设计。看：</font></font></p>
+<ul dir="auto">
+<li><a href="/hughperkins/VeriGPU/blob/main/docs/tech_details.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档/tech_details.md</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确认</font></font></h1><a id="user-content-verification" class="anchor" aria-label="永久链接：验证" href="#verification"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果我们想要流片，我们需要可靠的验证。阅读更多内容：</font></font></p>
+<ul dir="auto">
+<li><a href="/hughperkins/VeriGPU/blob/main/docs/verification.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档/验证.md</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指标</font></font></h1><a id="user-content-metrics" class="anchor" aria-label="永久链接：指标" href="#metrics"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们希望 GPU 能够快速运行，并使用最小的芯片面积。请阅读我们如何测量时间和面积：</font></font></p>
+<ul dir="auto">
+<li><a href="/hughperkins/VeriGPU/blob/main/docs/metrics.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档/metrics.md</font></font></a></li>
+</ul>
 
-Create an opensource GPU for machine learning.
 
-I don't actually intend to tape this out myself, but I intend to do what I can to verify somehow that tape-out would work ok, timings ok, etc.
 
-Intend to implement a [HIP](https://github.com/ROCm-Developer-Tools/HIP) API, that is compatible with [pytorch](https://pytorch.org) machine learning framework. Open to provision of other APIs, such as [SYCL](https://www.khronos.org/sycl/) or [NVIDIA® CUDA™](https://developer.nvidia.com/cuda-toolkit).
-
-Internal GPU Core ISA loosely compliant with [RISC-V](https://riscv.org/technical/specifications/) ISA. Where RISC-V conflicts with designing for a GPU setting, we break with RISC-V.
-
-Intend to keep the cores very focused on ML. For example, [brain floating point](https://en.wikipedia.org/wiki/Bfloat16_floating-point_format) ("BF16") throughout, to keep core die area low. This should keep the per-core cost low. Similarly, Intend to implement only few float operations critical to ML, such as `exp`, `log`, `tanh`, `sqrt`.
-
-# Architecture
-
-Big Picture:
-
-![Big Picture](docs/img/overall.png)
-
-GPU Die Architecture:
-
-![GPU Die Architecture](/docs/img/gpu_die.png)
-
-Single Core:
-
-![Single Core](/docs/img/core.png)
-
-Single-source compilation and runtime
-
-![End-to-end Architecture](/docs/img/endtoend.png)
-
-# Simulation
-
-<!-- ![toy proc workflow](/docs/img/toy_proc_workflow.png) -->
-
-<!-- ![Example output](/docs/img/example_output.png) -->
-
-## Single-source C++
-
-Single-source C++:
-
-- [examples/cpp_single_source/sum_ints.cpp](/examples/cpp_single_source/sum_ints.cpp)
-
-![Single-source C++](/docs/img/single_source_code.png)
-
-Compile the GPU and runtime:
-
-- CMakeLists.txt: [src/gpu_runtime/CMakeLists.txt](/src/gpu_runtime/CMakeLists.txt)
-- GPU runtime: [src/gpu_runtime/gpu_runtime.cpp](/src/gpu_runtime/gpu_runtime.cpp)
-- GPU controller: [src/gpu_controller.sv](/src/gpu_controller.sv)
-- Single GPU RISC-V core: [src/core.sv](/src/core.sv)
-
-![Compile GPU and runtime](/docs/img/compile_gpu_and_runtime.png)
-
-Compile the single-source C++, and run:
-
-- [examples/cpp_single_source/run.sh sum_ints](/examples/cpp_single_source/run.sh)
-
-![Run single-source example](/docs/img/single_source_run.png)
-
-# Planning
-
-What direction are we thinking of going in? What works already? See:
-
-- [docs/planning.md](docs/planning.md)
-
-# Tech details
-
-Our assembly language implementation and progress. Design of GPU memory, registers, and so on. See:
-
-- [docs/tech_details.md](docs/tech_details.md)
-
-# Verification
-
-If we want to tape-out, we need solid verification. Read more at:
-
-- [docs/verification.md](docs/verification.md)
-
-# Metrics
-
-we want the GPU to run quickly, and to use minimal die area. Read how we measure timings and area at:
-
-- [docs/metrics.md](docs/metrics.md)
-
-<!-- # What can I do with VeriGPU?
-
-Well, aside from taping it out, which is going to be very expensive, you can:
-- run simulations of a single core
-    - Experiment with various core designs
-    - Measure clock cycles for various operations under each design
-    - Measure die area (as a ratio of number of NAND gates equivalent) for different designs
-    - Measure maximum propagation delay (as a ratio of number of NAND gates equivalent) for different designs
-- run simulations on a single compute unit (coming soon!)
-    - similar experiments as for a single core, but on an entire compute unit, containing multiple cores
-- run simulations on an entire GPU die, including gpu controller (using supplied global memory simulator) -->
-
-<!-- # Why work on something that we might never be able to make for real?
-
-Well, it's not certain that it can never be built. If we actually create a plausibly verified and working GPU design, there is a bunch of VC around to tape it out.
-
-But, in the mean-time... there are a number of things that are hard or extremely expensive to run for real, such as:
-- plasmas (in a fusion reactor for example)
-- space rockets
-- mars landers
-- ... and also VLSI ASICs, such as GPUs
-
-In all cases, one of the main approaches to the problem is to create high-quality simulations. In the case of plasmas for fusion reactors, this is pretty challenging, since we cannot even 'see' the ground-truth. Light is just another particle, and it interacts with the plasma. Ultimately we just see how much energy is created, and some of the particles emitted. The plasma simulations are used to test various hypotheses about what is happening, to 'reverse engineer' the plasma.
-
-In the case of GPUs, simulation is relatively straightforward. CMOS circuitry is relatively deterministic, at least at the cell level, and there are a number of high quality simulators available, such as [iverilog](http://iverilog.icarus.com/) and [verilator](https://www.veripool.org/verilator/). We can use [yosys](https://github.com/YosysHQ/yosys) to synthesize down to gate-level cells, and then we can run simulations on that. We can run the GPU in these simulators, and tweak things to our heart's content. Want a GPU with only BF16? Tweak the code. Actually I intend to make it pure FP16 anyway, but it's just an example. Want to change the number of cores per multiprocessor, or the trade-off between clock frequency and instruction latency? Tweak the code :)
-
-I feel that being able to work on projects in the absence of being able to 'just try things out' for real is plausibly a useful and valuable skill.
-
-(to do: I need to write some instructions on how to quickly get stuck into running the simulations :) ) -->
-
-<!-- # Why not target/test on FPGA?
-
-In my previous experience on OpenCL, i.e. [DeepCL](https://github.com/hughperkins/DeepCL), [cltorch](https://github.com/hughperkins/cltorch), [coriander](https://github.com/hughperkins/coriander), where ironically I only had access to an NVIDIA® GPU to run them :P, I found that everything I did became optimized in various subtle ways for NVIDIA® GPUs, and when I finally got a brief access to an AMD® GPU, performance was terrible. The difference between an FPGA and an ASIC is considerable. For example, FPGAs contain their own built-in routing architecture, flip-flops work slightly differently, resets work slightly differently, FPGAs can have 'initial' blocks, and memory is laid out differently in an FPGA. I feel that even touching an FPGA will 'taint' the design in various subtle ways, that will be hard to detect. In machine learning parlance, I feel we will 'over-fit' against the FPGA, and fail to generalize correctly to ASIC.
-
-So, simulation is the way forward I feel. And we need to make sure the simulations are as solid, accurate, and complete as possible. -->
+</article></div>
